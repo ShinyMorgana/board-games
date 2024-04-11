@@ -1,0 +1,15 @@
+{
+    "name": "jacky/board-games",
+    "autoload": {
+        "psr-4": {
+            "Jacky\\BoardGames\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ShinyMorgana",
+            "email": "89910002+ShinyMorgana@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
