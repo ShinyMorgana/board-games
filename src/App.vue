@@ -1,7 +1,7 @@
 <script setup>
 import HelloWorld from "./components/HelloWorld.vue";
 import TheWelcome from "./components/TheWelcome.vue";
-
+import BoardGameList from "./components/BoardGameList.vue"; // Import the BoardGameList component
 </script>
 
 <template>
@@ -15,6 +15,7 @@ import TheWelcome from "./components/TheWelcome.vue";
 
   <main>
     <TheWelcome />
+    <BoardGameList /> <!-- Add the BoardGameList component to the main section -->
   </main>
 </template>
 
