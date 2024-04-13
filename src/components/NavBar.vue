@@ -1,6 +1,6 @@
 <template>
     <nav class="navbar">
-      <div class="container">
+      <div class="nav-container">
         <a href="/" class="navbar-brand">Board Game Group</a>
         <div class="navbar-menu">
           <a href="/" class="navbar-item">Home</a>
@@ -22,7 +22,7 @@
       background-color: var(--color-background); /* Use the color variable from your palette */
       padding: 1rem 2rem;
     }
-    .container {
+    .nav-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
