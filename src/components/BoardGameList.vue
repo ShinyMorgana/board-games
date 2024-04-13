@@ -1,12 +1,13 @@
 <template>
   <div class="board-games-container">
-    <h1 class="title">Board Games Dashboard</h1>
+    <h1 class="title">Board Games</h1>
     <table class="board-games-table">
       <thead>
         <tr>
           <th>Name</th>
           <th>Min Players</th>
           <th>Max Players</th>
+          <th>Complexity</th>
         </tr>
       </thead>
       <tbody>
@@ -14,6 +15,7 @@
           <td>{{ boardGame.name }}</td>
           <td>{{ boardGame.min_players }}</td>
           <td>{{ boardGame.max_players }}</td>
+          <td>{{ boardGame.complexity }}</td>
         </tr>
       </tbody>
     </table>
