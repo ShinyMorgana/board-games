@@ -1,10 +1,24 @@
 <template>
-    <div>
-      <ul>
-        <li v-for="boardGame in boardGames" :key="boardGame.id">{{ boardGame.name }}</li>
-      </ul>
-    </div>
-  </template>
+  <div class="board-games-container">
+    <h1 class="title">Board Games Dashboard</h1>
+    <table class="board-games-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Min Players</th>
+          <th>Max Players</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="boardGame in boardGames" :key="boardGame.id">
+          <td>{{ boardGame.name }}</td>
+          <td>{{ boardGame.min_players }}</td>
+          <td>{{ boardGame.max_players }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
   
   <script>
   import api from '@/api/api';
@@ -31,3 +45,36 @@
     }
   };
   </script>
+
+<style scoped>
+.board-games-container {
+  padding: var(--section-gap);
+  background-color: var(--color-background);
+}
+
+.title {
+  color: var(--color-heading);
+  margin-bottom: 1rem;
+}
+
+.board-games-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.board-games-table th,
+.board-games-table td {
+  text-align: left;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.board-games-table th {
+  background-color: var(--color-detail);
+  color: var(--color-background);
+}
+
+.board-games-table tr:hover td {
+  background-color: var(--color-background-mute);
+}
+</style>
