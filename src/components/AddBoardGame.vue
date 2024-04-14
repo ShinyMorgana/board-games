@@ -3,8 +3,9 @@
         <input v-model="newBoardGame.name" placeholder="Naam van bordspel">
         <input v-model="newBoardGame.min_players" type="number" placeholder="Min spelers">
         <input v-model="newBoardGame.max_players" type="number" placeholder="Max spelers">
+        <input v-model="newBoardGame.complexity" type="number" placeholder="Complexity">
         <!-- Voeg hier andere inputvelden toe voor de eigenschappen van je bordspel -->
-        <button @click="addBoardGame">Voeg Bordspel Toe</button>
+        <button @click="addBoardGame">Add Board Game</button>
     </div>
 </template>
 
@@ -26,13 +27,19 @@ export default {
     },
     methods: {
         addBoardGame() {
-            api.createBoardGame(this.newBoardGame)
+            // Retrieve CSRF token from meta tag
+            let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+            // Include the CSRF token in the request header
+            axios.post('/api/boardgames', this.newBoardGame, {
+                headers: {
+                    'X-CSRF-TOKEN': token
+                }
+            })
                 .then(response => {
-                    // Verwerk hier het succesvol toevoegen van het bordspel
                     console.log('Board game added!', response.data);
                 })
                 .catch(error => {
-                    // Verwerk hier eventuele fouten
                     console.error('There was an error adding the board game:', error.response);
                 });
         },
