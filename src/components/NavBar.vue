@@ -5,6 +5,7 @@
         <div class="navbar-menu">
           <a href="/" class="navbar-item">Home</a>
           <a href="/board-games" class="navbar-item">Board Games</a>
+          <a href="/add" class="navbar-item">Add</a>
           <!-- Future navigation items go here -->
         </div>
       </div>

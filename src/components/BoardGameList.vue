@@ -21,32 +21,33 @@
     </table>
   </div>
 </template>
-  
-  <script>
-  import api from '@/api/api';
-  
-  export default {
-    data() {
-      return {
-        boardGames: []
-      };
-    },
-    mounted() {
-      this.getBoardGames();
-    },
-    methods: {
-      getBoardGames() {
-        api.getBoardGames()
-          .then(response => {
-            this.boardGames = response.data;
-          })
-          .catch(error => {
-            console.error('There was an error:', error.response);
-          });
-      }
+
+<script>
+import api from '@/api/api';
+
+export default {
+  data() {
+    return {
+      boardGames: []
+    };
+  },
+  mounted() {
+    this.getBoardGames();
+  },
+  methods: {
+    getBoardGames() {
+      api.getBoardGames()
+        .then(response => {
+          this.boardGames = response.data;
+        })
+        .catch(error => {
+          console.error('There was an error:', error.response);
+        });
     }
-  };
-  </script>
+  }
+};
+</script>
+
 
 <style scoped>
 .board-games-container {

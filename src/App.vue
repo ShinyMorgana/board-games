@@ -7,4 +7,6 @@
 
 <script setup>
 import NavBar from './components/NavBar.vue';
+
+import AddBoardGame from './components/AddBoardGame.vue';
 </script>

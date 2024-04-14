@@ -13,4 +13,7 @@ export default {
   getBoardGames() {
     return apiClient.get('/boardgames');
   },
+  createBoardGame(boardGameData) {
+    return apiClient.post('/boardgames', boardGameData);
+  },
 };

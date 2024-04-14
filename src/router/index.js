@@ -1,14 +1,15 @@
 
 import { createRouter, createWebHistory } from 'vue-router';
+import AddBoardGame from '../components/AddBoardGame.vue';
 import BoardGamesPage from '../components/BoardGamesPage.vue';
 import Login from '../components/Login.vue';
 import Register from '../components/Register.vue';
-import Home from '../components/HelloWorld.vue'; // Assuming you have a Home.vue or similar for your homepage
 
 const routes = [
   { path: '/', component: Login },
   { path: '/board-games', component: BoardGamesPage },
-  { path: '/register', component: Register }
+  { path: '/register', component: Register },
+  { path: '/add', component: AddBoardGame }
 ];
 
 const router = createRouter({
