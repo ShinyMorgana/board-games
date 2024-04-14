@@ -10,7 +10,7 @@
 
 
 <script>
-import api from '@/api/api'; 
+import api from '@/api/api';
 
 export default {
     data() {
@@ -25,16 +25,23 @@ export default {
     },
     methods: {
         addBoardGame() {
-            api.createBoardGame(this.newBoardGame)
+            // Construct your board game data object here, e.g.:
+            const boardGameData = {
+                name: this.newBoardGame.name,
+                min_players: this.newBoardGame.min_players,
+                max_players: this.newBoardGame.max_players,
+                complexity: this.newBoardGame.complexity,
+            };
+
+            // Call the API to create a new board game
+            api.createBoardGame(boardGameData)
                 .then(response => {
-                    // Verwerk hier het succesvol toevoegen van het bordspel
                     console.log('Board game added!', response.data);
                 })
                 .catch(error => {
-                    // Verwerk hier eventuele fouten
-                    console.error('There was an error adding the board game:', error.response);
+                    console.error('Error:', error.response);
                 });
         },
-    },
+    }
 };
 </script>
