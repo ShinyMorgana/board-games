@@ -19,7 +19,7 @@ export default {
                 name: '',
                 min_players: 0,
                 max_players: 0,
-                complexity: 0;
+                complexity: 0
                 // Voeg hier andere velden toe die je bordspel nodig heeft
             },
         };
