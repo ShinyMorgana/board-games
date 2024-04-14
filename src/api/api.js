@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const apiClient = axios.create({
   baseURL: 'https://board-games-api-school-7a1eeb2c4b6f.herokuapp.com/api',
-  withCredentials: true,
+  withCredentials: false,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
