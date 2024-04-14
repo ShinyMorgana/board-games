@@ -23,26 +23,29 @@ export default {
                 complexity: 0
                 // Voeg hier andere velden toe die je bordspel nodig heeft
             },
+            csrfToken: '' // Initialize csrfToken
         };
+    },
+    mounted() {
+        // Set the csrfToken once the component is mounted and the DOM is fully loaded
+        const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+        if (csrfTokenMeta) {
+            this.csrfToken = csrfTokenMeta.getAttribute('content');
+        }
     },
     methods: {
         addBoardGame() {
-            // Retrieve CSRF token from meta tag
-            let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-            // Include the CSRF token in the request header
-            axios.post('/api/boardgames', this.newBoardGame, {
-                headers: {
-                    'X-CSRF-TOKEN': token
-                }
-            })
-                .then(response => {
-                    console.log('Board game added!', response.data);
-                })
-                .catch(error => {
-                    console.error('There was an error adding the board game:', error.response);
-                });
+            if (this.csrfToken) {
+                api.createBoardGame(this.newBoardGame, this.csrfToken)
+                    .then(response => {
+                        console.log('Board game added!', response.data);
+                    })
+                    .catch(error => {
+                        console.error('There was an error adding the board game:', error.response);
+                    });
+            } else {
+                console.error('CSRF token not found');
+            }
         },
     },
 };
-</script>
