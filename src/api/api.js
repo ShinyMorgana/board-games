@@ -1,8 +1,10 @@
 import axios from 'axios';
+//axios.defaults.headers.common['X-CSRF-TOKEN'] = this.csrfToken; // geen idee alkwijhoqinfoq
+
 
 const apiClient = axios.create({
   baseURL: 'https://board-games-api-school-7a1eeb2c4b6f.herokuapp.com/api',
-  withCredentials: false,
+  withCredentials: true,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
